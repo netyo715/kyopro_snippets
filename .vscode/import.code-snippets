@@ -1,0 +1,7 @@
+{
+	"collections.Counter":{
+		"prefix": "import Counter",
+		"body": "from collections import Counter",
+		"description": "import collections.Counter"
+	},
+}

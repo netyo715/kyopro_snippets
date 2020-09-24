@@ -1,0 +1,50 @@
+{
+	"factorization":{
+		"prefix": "soinsuubunkai",
+		"body":["def factorization(n):",
+				"\tarr = []",
+				"\ttemp = n",
+				"\tfor i in range(2, int(-(-n**0.5//1))+1):",
+				"\t\tif temp%i==0:",
+				"\t\t\tcnt=0",
+				"\t\t\twhile temp%i==0:",
+				"\t\t\t\tcnt+=1",
+				"\t\t\t\ttemp //= i",
+				"\t\t\tarr.append([i, cnt])",
+				"\tif temp!=1:",
+				"\t\tarr.append([temp, 1])",
+				"\tif arr==[]:",
+				"\t\tarr.append([n, 1])",
+				"\treturn arr"],
+		"description": "素因数分解"
+	},
+
+	"combination":{
+		"prefix": "ncr",
+		"body":["def cmb(n, r, p):",
+			"\tif (r < 0) or (n < r):",
+			"\t\treturn 0",
+			"\tr = min(r, n-r)",
+			"\tfact = [1, 1]",
+			"\tfactinv = [1, 1]",
+			"\tinv = [0, 1]",
+			"\tfor i in range(2, n+1):",
+			"\t\tfact.append((fact[-1] * i) % p)",
+			"\t\tinv.append((-inv[p % i] * (p // i)) % p)",
+			"\t\tfactinv.append((factinv[-1] * inv[-1]) % p)",
+			"\treturn fact[n] * factinv[r] * factinv[n-r] % p"],
+		"description": "nCr n個からr個選ぶ組み合わせmod p"
+	},
+
+	"cumulative sum":{
+		"prefix": "ruisekiwa",
+		"body":["def cumulative_sum(A):",
+				"\tif not A:",
+				"\t\treturn []",
+				"\tB = [A[0]]",
+				"\tfor a in A[1:]:",
+				"\t\tB.append(B[-1] + a)",
+				"\treturn B"],
+		"description": "累積和"
+	},
+}

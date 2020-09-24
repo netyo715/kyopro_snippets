@@ -1,0 +1,32 @@
+{
+	"inputInt":{
+		"prefix": "ii",
+		"body": "int(input())",
+		"description": "整数の入力"
+	},
+
+	"inputInts":{
+		"prefix": "iii",
+		"body": "map(int, input().split())",
+		"description": "1行で入力される複数の整数"
+	},
+
+	"inputIntList":{
+		"prefix": "iil",
+		"body": "list(map(int, input().split()))",
+		"description": "1行で入力される整数をリストとして受け取る"
+	},
+
+	"inputStr":{
+		"prefix": "ip",
+		"body": "input()",
+		"description": "文字列の入力"
+	},
+
+	"pai":{
+		"prefix": "pai",
+		"body": "3.14159265359",
+		"description": "円周率"
+	},
+	
+}
