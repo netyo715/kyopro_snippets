@@ -1,0 +1,4 @@
+inputじゃなくてreadlineを使う
+def main で全体を囲う
+listにinを使わない（setならいい）
+Counter + Counterではなく、Counter.update(Counter)にする

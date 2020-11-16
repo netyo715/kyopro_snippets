@@ -1,4 +1,11 @@
 {
+	"input from sys.stdin.readline":{
+		"prefix": "readline",
+		"body":["import sys",
+				"input = sys.stdin.readline"],
+		"description": "inputをsys.stdin.readline"
+	},
+
 	"inputInt":{
 		"prefix": "ii",
 		"body": "int(input())",
