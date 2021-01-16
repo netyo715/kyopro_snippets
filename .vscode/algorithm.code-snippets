@@ -27,8 +27,8 @@
 				"\tr = min(r, n - r)",
 				"\treturn fact[n] * factinv[r] * factinv[n-r] % mod",
 				"",
-				"mod = 10 ** 9 + 7",
-				"N = 10 ** 6  # N は必要分だけ用意する",
+				"MOD = 10**9+7",
+				"N = 10**6  # N は必要分だけ用意する",
 				"fact = [1, 1]  # fact[n] = (n! mod mod)",
 				"factinv = [1, 1]  # factinv[n] = ((n!)^(-1) mod mod)",
 				"inv = [0, 1]  # factinv 計算用",
@@ -217,5 +217,24 @@
 				"num =2**(N-1).bit_length()",
 				"seg=[ide_ele]*2*num"],
 		"description": "セグメント木"
+	},
+
+	"modinv": {
+		"prefix": "gyakugen",
+		"body":["def xgcd(a, b):",
+				"\tx0, y0, x1, y1 = 1, 0, 0, 1",
+				"\twhile b != 0:",
+				"\t\tq, a, b = a // b, b, a % b",
+				"\t\tx0, x1 = x1, x0 - q * x1",
+				"\t\ty0, y1 = y1, y0 - q * y1",
+				"\treturn a, x0, y0",
+				"",
+				"def modinv(a, m):",
+				"\tg, x, y = xgcd(a, m)",
+				"\tif g != 1:",
+				"\t\traise Exception('modular inverse does not exist')",
+				"\telse:",
+				"\t\treturn x % m"],
+		"description": "aの逆元を求める"
 	}
 }

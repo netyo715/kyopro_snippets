@@ -6,6 +6,12 @@
 		"description": "inputをsys.stdin.readline"
 	},
 
+	"setrecursionlimit":{
+		"prefix": "saiki",
+		"body": "sys.setrecursionlimit(10**6)",
+		"description": "再帰の上限を変更"
+	},
+
 	"inputInt":{
 		"prefix": "ii",
 		"body": "int(input())",
