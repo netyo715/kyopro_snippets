@@ -4,4 +4,10 @@
 		"body": "from collections import Counter",
 		"description": "import collections.Counter"
 	},
+
+	"heapq": {
+		"prefix": "import heapq",
+		"body": "from heapq import heapify, heappop as pop, heappush as push",
+		"description": "import heapq"
+	}
 }

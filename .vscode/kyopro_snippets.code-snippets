@@ -1,15 +1,10 @@
 {
-	"input from sys.stdin.readline":{
-		"prefix": "readline",
+	"kyopuroset":{
+		"prefix": "kyopuroset",
 		"body":["import sys",
-				"input = sys.stdin.readline"],
-		"description": "inputをsys.stdin.readline"
-	},
-
-	"setrecursionlimit":{
-		"prefix": "saiki",
-		"body": "sys.setrecursionlimit(10**6)",
-		"description": "再帰の上限を変更"
+				"input = sys.stdin.readline",
+				"sys.setrecursionlimit(10**6)",],
+		"description": "再帰の上限の変更、inputをsys.stdin.readlineにする"
 	},
 
 	"inputInt":{
@@ -24,22 +19,28 @@
 		"description": "1行で入力される複数の整数"
 	},
 
+	"inputIntsDecrement":{
+		"prefix": "iii-",
+		"body": "map(lambda x: int(x)-1, input().split())",
+		"description": "1行で入力される複数の整数 全ての要素から1減らす"
+	},
+
 	"inputIntList":{
 		"prefix": "iil",
 		"body": "list(map(int, input().split()))",
 		"description": "1行で入力される整数をリストとして受け取る"
 	},
 
+	"inputIntListDecrement":{
+		"prefix": "iil-",
+		"body": "list(map(lambda x: int(x)-1, input().split()))",
+		"description": "1行で入力される整数をリストとして受け取る 全ての要素から1減らす"
+	},
+
 	"inputStr":{
 		"prefix": "ip",
 		"body": "input()",
 		"description": "文字列の入力"
-	},
-
-	"pai":{
-		"prefix": "pai",
-		"body": "3.14159265359",
-		"description": "円周率"
 	},
 	
 }
