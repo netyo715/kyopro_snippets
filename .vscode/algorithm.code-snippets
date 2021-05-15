@@ -1,5 +1,5 @@
 {
-	"factorization":{
+	"factorization":{//与えられた整数を素因数分解する
 		"prefix": "soinsuubunkai",
 		"body":["def factorization(n):",
 				"\tarr = []",
@@ -16,10 +16,10 @@
 				"\tif arr==[]:",
 				"\t\tarr.append([n, 1])",
 				"\treturn arr"],
-		"description": "素因数分解"
+		"description": "与えられた整数を素因数分解する"
 	},
 
-	"combination":{
+	"combination":{//前計算をしてnCrをmodで割ったあまりを求める
 		"prefix": "ncr",
 		"body":["cmbMOD = 10**9+7",
 				"cmbN = 10**6",
@@ -40,7 +40,7 @@
 		"description": "nCr n個からr個選ぶ組み合わせmod MOD"
 	},
 
-	"cumulative sum":{
+	"cumulative sum":{//zアルゴリズム SとS[i:]の共通接頭辞の長さを全てのiについて求める
 		"prefix": "zalgo",
 		"body":["def z(s):",
 				"\tn = len(s)",
@@ -65,7 +65,7 @@
 		"description": "z-algorithm"
 	},
 
-	"union find":{
+	"union find":{//unionfind木
 		"prefix": "unionfind",
 		"body":["class UnionFind():",
 				"\tdef __init__(self, n):",
@@ -113,20 +113,13 @@
 		"description": "unionfind"
 	},
 
-	"meguru_bisect":{
+	"meguru_bisect":{//二分探索
 		"prefix": "megurubisect",
 		"body":["def is_ok(arg):",
-				"\t# 条件を満たすかどうか？問題ごとに定義",
 				"\tpass",
 				"",
 				"",
 				"def meguru_bisect(ng, ok):",
-				"\t'''",
-				"\t初期値のng,okを受け取り,is_okを満たす最小(最大)のokを返す",
-				"\tまずis_okを定義すべし",
-				"\tng ok は  とり得る最小の値-1 とり得る最大の値+1",
-				"\t最大最小が逆の場合はよしなにひっくり返す",
-				"\t'''",
 				"\twhile (abs(ok - ng) > 1):",
 				"\t\tmid = (ok + ng) // 2",
 				"\t\tif is_ok(mid):",
@@ -137,7 +130,7 @@
 		"description": "めぐる式二分探索"
 	},
 
-	"fenwicktree":{
+	"fenwicktree":{//fenwicktree/BIT 区間の総和がとれるやつ
 		"prefix": "fenwicktree",
 		"body":["class BIT:",
 				"\tdef __init__(self, n):",
@@ -165,7 +158,7 @@
 		"description": "fenwick tree (BIT)"
 	},
 
-	"segment tree":{
+	"segment tree":{//セグ木
 		"prefix": "segtree",
 		"body":["class SegTree:",
 				"\tdef __init__(self, N, A, ide_ele):",
@@ -224,7 +217,9 @@
 		"description": "セグメント木"
 	},
 
-	"ACL_lazy_segtree":{
+	"ACL_lazy_segtree":{//遅延セグ木
+		//書き方の例↓
+		//https://atcoder.jp/contests/typical90/submissions/22515868
 		"prefix": "lazysegtree",
 		"body":["class LazySegtree():",
 				"\tdef update(self,k):self.d[k]=self.op(self.d[2*k],self.d[2*k+1])",
@@ -352,7 +347,7 @@
 		"description": "ACL_lazy_segtree",
 	},
 	
-	"modinv": {
+	"modinv": {//a mod m aの逆元を求める
 		"prefix": "gyakugen",
 		"body":["def xgcd(a, b):",
 				"\tx0, y0, x1, y1 = 1, 0, 0, 1",
@@ -371,109 +366,4 @@
 		"description": "aの逆元を求める"
 	},
 
-	"最小包含円": {
-		"prefix": "saisyouhouganen",
-		"body":["from copy import copy",
-				"from itertools import combinations",
-				"from random import sample",
-				"",
-				"class circle:",
-				"\tdef __init__(self, pts):",
-				"\t\tassert(0 <= len(pts) and len(pts) <= 3)",
-				"\t\tself.__pts = copy(pts)",
-				"\t\tif len(pts) == 0:",
-				"\t\t\tself.__cx, self.__cy, self.__r = float('inf'), float('inf'), 0",
-				"\t\telif len(pts) == 1:",
-				"\t\t\tself.__cx, self.__cy, self.__r = *pts[0], 0",
-				"\t\telif len(pts) == 2:",
-				"\t\t\tself.__cx, self.__cy, self.__r = self.__c2()",
-				"\t\telse:",
-				"\t\t\tself.__cx, self.__cy, self.__r = self.__c3()",
-				"",
-				"\tdef __c2(self):",
-				"\t\tassert(len(self.__pts) == 2)",
-				"\t\t(x0, y0), (x1, y1) = self.__pts",
-				"\t\treturn ((x0+x1)/2, (y0+y1)/2,",
-				"\t\t\t\t0.5*((x0-x1)*(x0-x1) + (y0-y1)*(y0-y1))**0.5)",
-				"",
-				"\tdef __c3(self):",
-				"\t\tassert(len(self.__pts) == 3)",
-				"\t\treturn self.__o3() if self.__obtuse() else self.__a3()",
-				"",
-				"\tdef __o3(self):",
-				"\t\tp, q = max(((xi-xj)**2 + (yi-yj)**2, ((xi, yi), (xj, yj)))",
-				"\t\t\t\t   for (xi, yi), (xj, yj) in combinations(self.__pts, 2))[1]",
-				"\t\tself.__pts = [p, q]",
-				"\t\treturn self.__c2()",
-				"",
-				"\tdef __obtuse(self):",
-				"\t\t(x0, y0), (x1, y1), (x2, y2) = self.__pts",
-				"\t\ta = (x0-x1)**2 + (y0-y1)**2",
-				"\t\tb = (x1-x2)**2 + (y1-y2)**2",
-				"\t\tc = (x2-x0)**2 + (y2-y0)**2",
-				"\t\treturn a > b+c or b > c+a or c > a+b",
-				"",
-				"\tdef __a3(self):",
-				"\t\t(x0, y0), (x1, y1), (x2, y2) = self.__pts",
-				"",
-				"\t\tx01, x02 = x0 - x1, x0 - x2",
-				"\t\ty01, y02 = y0 - y1, y0 - y2",
-				"",
-				"\t\ty20, y10 = y2 - y0, y1 - y0",
-				"\t\tx20, x10 = x2 - x0, x1 - x0",
-				"",
-				"\t\tsx02, sy02 = x0*x0 - x2*x2, y0*y0 - y2*y2",
-				"\t\tsx10, sy10 = x1*x1 - x0*x0, y1*y1 - y0*y0",
-				"",
-				"\t\tf = (sx02*x01+sy02*x01 + sx10*x02+sy10*x02) / (2*(y20*x01 - y10*x02))",
-				"\t\tg = (sx02*y01+sy02*y01 + sx10*y02+sy10*y02) / (2*(x20*y01 - x10*y02))",
-				"\t\tc = -x0*x0 - y0*y0 - 2*g*x0 - 2*f*y0",
-				"",
-				"\t\treturn (-g, -f, (f*f + g*g - c)**0.5)",
-				"",
-				"\tdef contains(self, x, y):",
-				"\t\treturn ((x-self.__cx)**2 + (y-self.__cy)**2)**0.5 <= self.__r + 1e-9",
-				"",
-				"\tdef pts(self):",
-				"\t\treturn set(self.__pts)",
-				"",
-				"\t@property",
-				"\tdef center(self):",
-				"\t\treturn (self.__cx, self.__cy)",
-				"",
-				"\t@property",
-				"\tdef radius(self):",
-				"\t\treturn self.__r",
-				"",
-				"",
-				"def welzl(p, r=set()):",
-				"\tif len(p) == 0 or len(r) == 3:",
-				"\t\treturn circle(list(r))",
-				"\tq = sample(p, 1)[0]   # randomly and uniformly",
-				"\td = welzl(set(p) - {q}, r)",
-				"\tif d.contains(*q):",
-				"\t\treturn d",
-				"\treturn welzl(set(p) - {q}, r | {q})",
-				"",
-				"",
-				"def msw(pts):",
-				"\tif len(pts) <= 3:",
-				"\t\treturn circle(pts)",
-				"\treturn _msw(set(pts), set(sample(pts, 3)))",
-				"",
-				"",
-				"def _msw(p, r):",
-				"\tif len(p) == 0:",
-				"\t\treturn circle(list(r))",
-				"\tq = sample(p, 1)[0]",
-				"\td = _msw(p - {q}, r)",
-				"\tif d.contains(*q):",
-				"\t\treturn d",
-				"\tx = (r | {q}) - welzl(r | {q}).pts()",
-				"\treturn _msw((p - {q}) | x, (r | {q}) - x)",
-				"",
-				"#en = [(0, 0), (1, 2)]",
-				"#msw(en)"],
-		"description": "最小包含円"
-	}
 }
