@@ -43,4 +43,15 @@
 		"description": "文字列の入力"
 	},
 	
+	"print":{
+		"prefix": "pt",
+		"body": "print($1)",
+		"description": "出力"
+	},
+
+	"printsep":{
+		"prefix": "ptp",
+		"body": "print($1, sep=\"$2\")",
+		"description": "出力"
+	}
 }
