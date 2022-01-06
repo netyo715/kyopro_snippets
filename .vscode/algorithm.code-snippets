@@ -235,4 +235,29 @@
 				"\t\treturn x % m"],
 		"description": "aの逆元を求める"
 	},
+
+	"EularTour":{
+		"prefix": "eulartour",
+		"body":["def EulerTour(N, G, start):",
+				"\timport sys",
+				"\tsys.setrecursionlimit(10**6)",
+				"\tin_time = [0]*N",
+				"\tout_time = [0]*N",
+				"",
+				"\tdef dfs(prev, now, time):",
+				"\t\tin_time[now] = time",
+				"\t\ttime += 1",
+				"\t\tfor next in G[now]:",
+				"\t\t\tif next==prev:",
+				"\t\t\t\tcontinue",
+				"\t\t\ttime = dfs(now, next, time)",
+				"\t\tout_time[now] = time",
+				"\t\ttime += 1",
+				"\t\treturn time",
+				"",
+				"\tdfs(-1, start, 0)",
+				"",
+				"\treturn in_time, out_time",],
+		"description": "オイラーツアー"
+	},
 }
