@@ -3,8 +3,10 @@
 		"prefix": "kyopuroset",
 		"body":["import sys",
 				"input = sys.stdin.readline",
-				"sys.setrecursionlimit(10**6)",],
-		"description": "再帰の上限の変更、inputをsys.stdin.readlineにする"
+				"sys.setrecursionlimit(10**6)",
+				"import pypyjit",
+				"pypyjit.set_param('max_unroll_recursion=-1')",],
+		"description": "再帰の上限の変更、inputをsys.stdin.readlineにする、PyPyの再帰の高速化"
 	},
 
 	"inputInt":{
