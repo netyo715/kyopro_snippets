@@ -39,6 +39,18 @@
 		"description": "1行で入力される整数をリストとして受け取る 全ての要素から1減らす"
 	},
 
+	"inputIntTuple":{
+		"prefix": "iit",
+		"body": "tuple(map(int, input().split()))",
+		"description": "1行で入力される整数をタプルとして受け取る"
+	},
+
+	"inputIntTupleDecrement":{
+		"prefix": "iit-",
+		"body": "tuple(map(lambda x: int(x)-1, input().split()))",
+		"description": "1行で入力される整数をタプルとして受け取る 全ての要素から1減らす"
+	},
+
 	"inputStr":{
 		"prefix": "ip",
 		"body": "input()",

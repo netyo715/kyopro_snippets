@@ -596,5 +596,23 @@
 				"\t\t\tModInt(pow(other, self.x, MOD))",
 				"\t\t)",],
 		"description": "ModInt"
-	},	
+	},
+	"intsqrt":{
+		"prefix": "sqrt",
+		"body":["import math",
+				"def intsqrt(n):",
+				"\tsqnf=math.sqrt(n)",
+				"\tdig=math.ceil(math.log10(sqnf))",
+				"\tsq=0",
+				"\tfor k in reversed(range(0,dig+1)):",
+				"\t\tfor l in range(0,10):",
+				"\t\t\tsq+=10**k",
+				"\t\t\tif sq*sq==n:",
+				"\t\t\t\tbreak",
+				"\t\t\tif sq*sq>n:",
+				"\t\t\t\tsq-=10**k",
+				"\t\t\t\tbreak",
+				"\treturn sq",],
+		"description": "����Ȑ��̕����������߂�֐�"
+	},
 }
